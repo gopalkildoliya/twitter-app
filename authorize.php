@@ -26,7 +26,10 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+		<link type="text/css" rel="stylesheet" href="css/custom.css">
+		<link type="text/css" rel="stylesheet" href="css/jquery.bxslider.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="js/jquery.bxslider.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -35,10 +38,13 @@
 					<img src="<?php echo $user->profile_image_url_https;?>">
 				</div>
 				<div class="col-md-10">
-					<h2><?php echo $user->name;?></h2>
+					<h2 class="user-name"><?php echo $user->name;?></h2>
 				</div>
 			</div>
-			<div class="row" id="timeline">
+			<div class="row">
+				<div class="col-md-8 col-md-offest-2">
+					<ul class="bxslider"  id="timeline"></ul>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -46,6 +52,7 @@
 		$(document).ready(function(){
 		    $.get("gettimeline.php", function(data, status){
 		        $("#timeline").html(data);
+		        $('.bxslider').bxSlider();
 		    });
 		});
 	</script>

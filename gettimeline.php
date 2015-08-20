@@ -15,14 +15,14 @@
 	$timeline = $connection->get("statuses/home_timeline", array("count" => 10));
 	foreach ($timeline as $story) {
 		$user=$story->user;
-		echo ('<div class="media">
+		echo ('<li><div class="media">
   				<div class="media-left">
-    				<a href="#">
-      					<img class="media-object" src="'.$user->profile_image_url.'" alt="'.$user->name.'">
+    				<a href="'.$user->url.'">
+      					<img class="media-object img-rounded" src="'.$user->profile_image_url.'" alt="'.$user->name.'">
     				</a>
   				</div>
   				<div class="media-body">
-    			<h4 class="media-heading">'.$user->name.'</h4>'.$story->text.'</div>
-			</div>');
+    			<a href="'.$user->url.'"><h4 class="media-heading">'.$user->name.'</h4></a>'.$story->text.'</div>
+			</div></li>');
 	}
 ?>
