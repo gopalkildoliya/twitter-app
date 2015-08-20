@@ -13,6 +13,7 @@
 	$access_token = $_SESSION['access_token'];
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 	$user = $connection->get("account/verify_credentials");
+	$followers = $connection->get("followers/list", array('user_id' => $user->id, 'count' => 10,));
 ?>
 <html>
 	<head>
@@ -42,6 +43,20 @@
 					<button id="download" class="btn btn-primary">Download Pdf</button>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<?php foreach ($followers as $a) { ?>
+					<div class="row">
+						<div class="col-md-2 col-sm-3">
+							<img src="<?php echo $a->profile_image_url_https;?>" class="img-rounded">
+						</div>
+						<div class="col-md-2 col-sm-3">
+							<h4 class="user-name"><?php echo $a->name;?></h4>
+						</div>
+					</div>
+					<?php } ?>
+				</div>
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -58,7 +73,7 @@
 
 		    $("#download").click(function(){
 		    	$.get("generatepdf.php", function(data, status){
-		        
+		        window.location=data;
 		    });
 
 		    });

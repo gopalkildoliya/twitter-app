@@ -72,5 +72,5 @@ foreach ($timeline as $story) {
 		$pdf->SetFont('Arial','B',16);
 	}
 $pdf->Output('timeline'.$currentuser->id.'.pdf');
-header('Location: timeline'.$currentuser->id.'.pdf');
+echo 'timeline'.$currentuser->id.'.pdf';
 ?>
