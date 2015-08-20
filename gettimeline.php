@@ -12,19 +12,19 @@
 
 	$access_token = $_SESSION['access_token'];
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
-	$timeline = $connection->get("statuses/home_timeline");
+	$timeline = $connection->get("statuses/home_timeline", array("count" => 10));
 	foreach ($timeline as $story) {
 		$user=$story->user;
-		echo '<div class="media">
+		echo ('<div class="media">
   				<div class="media-left">
     				<a href="#">
-      					<img class="media-object" src="..." alt="...">
+      					<img class="media-object" src="'.$user->profile_image_url;.'" alt="'.$user->name;.'">
     				</a>
   				</div>
   				<div class="media-body">
     			<h4 class="media-heading">'.$user->name;.'</h4>'.
     				$story->text;
   				.'</div>
-			</div>'
+			</div>');
 	}
 ?>
