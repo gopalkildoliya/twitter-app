@@ -37,6 +37,11 @@
 					<ul class="bxslider"  id="timeline"></ul>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-2 col-md-offset-5">
+					<button id="download" class="btn btn-primary">Download Pdf</button>
+				</div>
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -49,6 +54,13 @@
 				  adaptiveHeight: true,
   				  mode: 'vertical'
 				});
+		    });
+
+		    $("#download").click(function(){
+		    	$.get("generatepdf.php", function(data, status){
+		        
+		    });
+
 		    });
 		});
 	</script>
