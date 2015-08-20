@@ -18,13 +18,11 @@
 		echo ('<div class="media">
   				<div class="media-left">
     				<a href="#">
-      					<img class="media-object" src="'.$user->profile_image_url;.'" alt="'.$user->name;.'">
+      					<img class="media-object" src="'.$user->profile_image_url.'" alt="'.$user->name.'">
     				</a>
   				</div>
   				<div class="media-body">
-    			<h4 class="media-heading">'.$user->name;.'</h4>'.
-    				$story->text;
-  				.'</div>
+    			<h4 class="media-heading">'.$user->name.'</h4>'.$story->text.'</div>
 			</div>');
 	}
 ?>
