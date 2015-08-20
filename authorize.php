@@ -22,11 +22,11 @@
 	$_SESSION['access_token'] = $access_token;
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 	$user = $connection->get("account/verify_credentials");
-	echo '<br>'.json_encode($user);
 ?>
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -38,6 +38,15 @@
 					<h2><?php echo $user->name;?></h2>
 				</div>
 			</div>
+			<div class="row" id="timeline">
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    $.get("gettimeline.php", function(data, status){
+		        $("#timeline").html(data);
+		    });
+		});
+	</script>
 </html>
