@@ -30,7 +30,22 @@ function Header()
     $this->Write(0, $user->name);
     $this->Ln(20);
 }
-
+function AcceptPageBreak()
+{
+    if($this->col<2)
+    {
+        // Go to next column
+        $this->SetCol($this->col+1);
+        $this->SetY(10);
+        return false;
+    }
+    else
+    {
+        // Go back to first column and issue page break
+        $this->SetCol(0);
+        return true;
+    }
+}
 // Page footer
 function Footer()
 {
@@ -49,9 +64,12 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
 foreach ($timeline as $story) {
 		$user=$story->user;
-		$pdf->Image($user->profile_image_url_https,10,6);
 		$pdf->Cell(0,0, $user->name);
-		$pdf->Cell(0,0, $story->text);
+		$pdf->Ln(10);
+		$pdf->SetFont('Arial','',12);
+		$pdf->MultiCell(0,5, $story->text);
+		$pdf->Ln(10);
+		$pdf->SetFont('Arial','B',16);
 	}
 $pdf->Output();
 ?>
