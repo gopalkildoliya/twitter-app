@@ -2,12 +2,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
-require "vendor/autoload.php";
+require 'vendor/autoload.php';
+define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
+define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
+define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-define('CONSUMER_KEY', 'Kx9KV3IUAn35bBhpAKHRdpnSf');
-define('CONSUMER_SECRET', 'rUpGE1NEthAEA9h8IcVDP5Se5xapXzTQbmTc8vJu1ZTJkBIKsN');
-define('OAUTH_CALLBACK', 'https://gopaltapp.herokuapp.com/authorize.php');
+
 
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
