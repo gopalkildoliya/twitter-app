@@ -18,8 +18,25 @@
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request_token['oauth_token'], $request_token['oauth_token_secret']);
 	$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
 	$_SESSION['access_token'] = $access_token;
-	foreach ($access_token as $key => $value) {
-		echo $key.' = '.$value.'<br>';
-	}
-
+	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
+	$user = $connection->get("account/verify_credentials");
+	echo $user;
+	echo '<br>'.json_encode($user);
 ?>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<img src="<?php echo $user->profile_image_url_https;?>">
+				</div>
+				<div class="col-md-10">
+					<h2><?php echo $user->name;?></h2>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
