@@ -1,24 +1,6 @@
-{       
-    "name": "gopalkildoliya/twitter-app", 
-    "type": "library",
-    "description": "Twitter's REST API use for user authentication.",
-    "keywords": ["twitter", "api", "oauth", "demo", "rest", "social"],
-    "license": "GPL",
-    "homepage": "https://github.com/gopalkildoliya/twitter-app",
-    "authors": [
-        {
-            "name": "Gopal Kildoliya",
-            "email": "gopalkildoliya@gmail.com",
-            "homepage": "http://www.poacademy.in",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "source": "https://github.com/gopalkildoliya/twitter-app",
-        "issues": "https://github.com/gopalkildoliya/twitter-app/issues"
-    },
+{
     "require": {
         "php": ">=5.4.0",
-        "abraham/twitteroauth": "0.5.2"
+        "abraham/twitteroauth": "^0.5.4"
     }
 }

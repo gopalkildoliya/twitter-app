@@ -1,26 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad0d5d97638bb02dfde48bb575ff9852",
+    "hash": "296df2b4b3c5e196c5a79ecf5841ee78",
     "packages": [
-    ],
-    "packages-dev": [
-    
         {
             "name": "abraham/twitteroauth",
-            "version": "0.5.2",
+            "version": "0.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abraham/twitteroauth.git",
-                "reference": "040a2ebe76dc836e5edab83e7f036897a8715785"
+                "reference": "1c05f38b7780c9e6d3938b3f2ac2f3fd9d810825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/040a2ebe76dc836e5edab83e7f036897a8715785",
-                "reference": "040a2ebe76dc836e5edab83e7f036897a8715785",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/1c05f38b7780c9e6d3938b3f2ac2f3fd9d810825",
+                "reference": "1c05f38b7780c9e6d3938b3f2ac2f3fd9d810825",
                 "shasum": ""
             },
             "require": {
@@ -28,9 +25,9 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpmd/phpmd": "2.*",
-                "phpunit/phpunit": "4.*",
-                "squizlabs/php_codesniffer": "2.*"
+                "phpmd/phpmd": "2.2.*",
+                "phpunit/phpunit": "4.7.*",
+                "squizlabs/php_codesniffer": "2.3.*"
             },
             "type": "library",
             "autoload": {
@@ -61,16 +58,15 @@
                 "social",
                 "twitter"
             ],
-            "time": "2015-03-19 05:51:18"
+            "time": "2015-08-18 15:56:04"
         }
     ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "php": ">=5.4.0"
-    },
+    "platform": [],
     "platform-dev": []
 }
