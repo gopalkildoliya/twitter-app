@@ -23,7 +23,7 @@
 		<script src="js/jquery.bxslider.min.js"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row user-row">
 				<div class="col-md-2">
 					<img src="<?php echo $user->profile_image_url_https;?>" class="img-rounded">
@@ -47,7 +47,7 @@
 				  auto: true,
 				  autoControls: true,
 				  adaptiveHeight: true,
-  				  mode: 'fade'
+  				  mode: 'vertical'
 				});
 		    });
 		});
