@@ -26,7 +26,7 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
