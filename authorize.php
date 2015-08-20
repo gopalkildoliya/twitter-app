@@ -1,8 +1,12 @@
 <?php
 	session_start();
 	require 'vendor/autoload.php';
-	require "config.php";
+	
 	use Abraham\TwitterOAuth\TwitterOAuth;
+	define('CONSUMER_KEY', getenv('CONSUMER_KEY'));
+	define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
+	define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
+
 
 	$request_token = [];
 	$request_token['oauth_token'] = $_SESSION['oauth_token'];
