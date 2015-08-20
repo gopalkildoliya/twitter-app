@@ -18,7 +18,7 @@
 		echo ('<li><div class="media">
   				<div class="media-left">
     				<a href="'.$user->url.'">
-      					<img class="media-object img-rounded" src="'.$user->profile_image_url.'" alt="'.$user->name.'">
+      					<img class="media-object img-rounded" src="'.$user->profile_image_url_https.'" alt="'.$user->name.'">
     				</a>
   				</div>
   				<div class="media-body">

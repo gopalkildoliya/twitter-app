@@ -33,7 +33,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="row">
+			<div class="row user-row">
 				<div class="col-md-2">
 					<img src="<?php echo $user->profile_image_url_https;?>">
 				</div>
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offest-2">
+				<div class="col-md-8 col-md-offset-2">
 					<ul class="bxslider"  id="timeline"></ul>
 				</div>
 			</div>
@@ -52,7 +52,12 @@
 		$(document).ready(function(){
 		    $.get("gettimeline.php", function(data, status){
 		        $("#timeline").html(data);
-		        $('.bxslider').bxSlider();
+		        $('.bxslider').bxSlider({
+				  auto: true,
+				  autoControls: true,
+				  adaptiveHeight: true,
+  				  mode: 'fade'
+				});
 		    });
 		});
 	</script>
