@@ -14,7 +14,7 @@
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 	$timeline = $connection->get("statuses/home_timeline", array("count" => 10));
 	if(isset($_GET['id']){
-		$timeline = $connection->get("statuses/home_timeline", array("count" => 10, "user_id" => $_GET[id]));
+		$timeline = $connection->get("statuses/home_timeline", array("count" => 10, "user_id" => $_GET['id']));
 	}
 	foreach ($timeline as $story) {
 		$user=$story->user;
