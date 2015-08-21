@@ -81,9 +81,10 @@
 	</body>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var slider;
 		    $.get("gettimeline.php", function(data, status){
 		        $("#timeline").html(data);
-		        var slider = $('.bxslider').bxSlider({
+		        slider = $('.bxslider').bxSlider({
 				  auto: true,
 				  autoControls: true,
 				  adaptiveHeight: true,
