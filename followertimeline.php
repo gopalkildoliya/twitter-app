@@ -9,10 +9,10 @@
 	define('CONSUMER_SECRET', getenv('CONSUMER_SECRET'));
 	define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
 	use Abraham\TwitterOAuth\TwitterOAuth;
-
+	$id = (int)$_GET[id];
 	$access_token = $_SESSION['access_token'];
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
-	$timeline = $connection->get("statuses/home_timeline", array("count" => 10));
+	$timeline = $connection->get("statuses/home_timeline", array("count" => 10, "user_id" => $id));
 	foreach ($timeline as $story) {
 		$user=$story->user;
 		echo ('<li><div class="media">

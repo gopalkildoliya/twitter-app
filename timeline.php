@@ -101,7 +101,7 @@
 			    	var selected=$(this).remoteList('selectedData');
 			        var id=selected.id;
 			        $("#timeline").html("Loading timeline tweets of "+selected.value);
-			        $.get("gettimeline.php?id="+id, function(data, status){
+			        $.get("followertimeline.php?id="+id, function(data, status){
 				        $("#timeline").html(data);
 				        $('.bxslider').bxSlider({
 						  auto: true,
