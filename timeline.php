@@ -13,7 +13,11 @@
 	$access_token = $_SESSION['access_token'];
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 	$user = $connection->get("account/verify_credentials");
-	$followers = $connection->get("followers/list", array('user_id' => $user->id, 'count' => 10,));
+	//Getting 10 followers //
+	$followers = $connection->get("followers/list", array('user_id' => $user->id, 'count' => 10));
+	$allfollowers = $connection->get("followers/list", array('user_id' => $user->id, 'count' => 200));
+	$allusers=$allfollowers->users;
+	$users=$followers->users;
 ?>
 <html>
 	<head>
@@ -22,6 +26,7 @@
 		<link type="text/css" rel="stylesheet" href="css/jquery.bxslider.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="js/jquery.bxslider.min.js"></script>
+		<script src="js/remote-list.min.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -45,7 +50,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<?php foreach ($followers as $a) { ?>
+					<?php foreach ($users as $a) { ?>
 					<div class="row">
 						<div class="col-md-2 col-sm-3">
 							<img src="<?php echo $a->profile_image_url_https;?>" class="img-rounded">
@@ -55,6 +60,14 @@
 						</div>
 					</div>
 					<?php } ?>
+				</div>
+				<div class="col-md-6">
+					<form class="form-inline">
+					  <div class="form-group">
+					    <label class="sr-only" for="search">Search follower</label>
+					    <input class="form-control autosuggest" >
+					  </div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -70,6 +83,21 @@
   				  mode: 'vertical'
 				});
 		    });
+
+		    $('.autosuggest').remoteList({
+			    minLength: 0,
+			    maxLength: 0,
+			    source: function(value, response){
+			        response([<?php foreach ($allusers as $a) {
+			        	echo '{value:'.$a->name.' label:'.$a->screen_name.' id:'.$a->id.'},';
+			        }?>]);
+			    },
+			    select: function(){
+			    	var selected=$(this).remoteList('selectedData');
+			        var id=selected.id;
+			        alert(id);
+			    }
+			});
 
 		    $("#download").click(function(){
 		    	$.get("generatepdf.php", function(data, status){
