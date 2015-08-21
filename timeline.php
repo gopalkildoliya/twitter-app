@@ -50,7 +50,11 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
+					<div class="panel panel-primary">
+  					<div class="panel-heading text-center">Followers</div>
+  					<ul class="list-group">
 					<?php foreach ($users as $a) { ?>
+					<li class="list-group-item">
 					<div class="row">
 						<div class="col-md-2 col-sm-3">
 							<img src="<?php echo $a->profile_image_url_https;?>" class="img-rounded">
@@ -59,7 +63,10 @@
 							<h5 ><?php echo $a->name;?></h5>
 						</div>
 					</div>
+				</li>
 					<?php } ?>
+				</ul>
+				</div>
 				</div>
 				<div class="col-md-6">
 					<form class="form-inline">
