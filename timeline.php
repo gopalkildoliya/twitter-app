@@ -48,7 +48,7 @@
 					<button id="download" class="btn btn-primary">Download Pdf</button>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" style="margin-top:20px;">
 				<div class="col-md-6">
 					<div class="panel panel-primary">
   					<div class="panel-heading text-center">Followers</div>
@@ -83,11 +83,11 @@
 		$(document).ready(function(){
 		    $.get("gettimeline.php", function(data, status){
 		        $("#timeline").html(data);
-		        $('.bxslider').bxSlider({
+		        var slider = $('.bxslider').bxSlider({
 				  auto: true,
 				  autoControls: true,
 				  adaptiveHeight: true,
-  				  mode: 'vertical'
+  				  mode: 'horizontal'
 				});
 		    });
 
@@ -109,13 +109,8 @@
 			        var id=selected.id;
 			        $("#timeline").html("Loading timeline tweets of "+selected.value);
 			        $.get("followertimeline.php?id="+id, function(data, status){
-				        $("#timeline").html(data);
-				        $('.bxslider').bxSlider({
-						  auto: true,
-						  autoControls: true,
-						  adaptiveHeight: true,
-		  				  mode: 'vertical'
-						});
+				        $(".bxslider").html(data);
+				        slider.reloadSlider();
 				    });
 			    }
 			});
