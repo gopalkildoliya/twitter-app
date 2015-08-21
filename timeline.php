@@ -55,7 +55,7 @@
 						<div class="col-md-2 col-sm-3">
 							<img src="<?php echo $a->profile_image_url_https;?>" class="img-rounded">
 						</div>
-						<div class="col-md-2 col-sm-3">
+						<div class="col-md-10 col-sm-9">
 							<h5 ><?php echo $a->name;?></h5>
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 				<div class="col-md-6">
 					<form class="form-inline">
 					  <div class="form-group">
-					    <label class="sr-only" for="search">Search follower</label>
+					    <label for="search">Search follower</label>
 					    <input class="form-control autosuggest" >
 					  </div>
 					</form>
@@ -88,8 +88,13 @@
 			    minLength: 0,
 			    maxLength: 0,
 			    source: function(value, response){
-			        response([<?php foreach ($allusers as $a) {
-			        	echo '{value:"'.$a->name.'" label:"'.$a->screen_name.'" id:"'.$a->id.'"},';
+			        response([<?php 
+			        	$index=0;
+			        	foreach ($allusers as $a) {
+			        		if($index>0)
+			        			echo ',';
+			        	echo '{value:"'.$a->name.'" label:"'.$a->screen_name.'" id:"'.$a->id.'"}';
+			        	$index++;
 			        }?>]);
 			    },
 			    select: function(){
