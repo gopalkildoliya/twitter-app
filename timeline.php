@@ -93,7 +93,7 @@
 			        	foreach ($allusers as $a) {
 			        		if($index>0)
 			        			echo ',';
-			        	echo '{value:"'.$a->name.'" label:"'.$a->screen_name.'" id:"'.$a->id.'"}';
+			        	echo '{value:"'.$a->name.'", label:"'.$a->screen_name.'", id:"'.$a->id.'"}';
 			        	$index++;
 			        }?>]);
 			    },
