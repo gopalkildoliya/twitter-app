@@ -56,7 +56,7 @@
 							<img src="<?php echo $a->profile_image_url_https;?>" class="img-rounded">
 						</div>
 						<div class="col-md-2 col-sm-3">
-							<h4 class="user-name"><?php echo $a->name;?></h4>
+							<h5 ><?php echo $a->name;?></h5>
 						</div>
 					</div>
 					<?php } ?>
@@ -89,13 +89,22 @@
 			    maxLength: 0,
 			    source: function(value, response){
 			        response([<?php foreach ($allusers as $a) {
-			        	echo '{value:'.$a->name.' label:'.$a->screen_name.' id:'.$a->id.'},';
+			        	echo '{value:"'.$a->name.'" label:"'.$a->screen_name.'" id:"'.$a->id.'"},';
 			        }?>]);
 			    },
 			    select: function(){
 			    	var selected=$(this).remoteList('selectedData');
 			        var id=selected.id;
-			        alert(id);
+			        $("#timeline").html("Loading timeline tweets of "+selected.value);
+			        $.get("gettimeline.php:id="+id, function(data, status){
+				        $("#timeline").html(data);
+				        $('.bxslider').bxSlider({
+						  auto: true,
+						  autoControls: true,
+						  adaptiveHeight: true,
+		  				  mode: 'vertical'
+						});
+				    });
 			    }
 			});
 
